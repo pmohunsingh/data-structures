@@ -1,0 +1,47 @@
+/* Priska Mohunsingh
+ * Given an array of random numbers, 
+ * write a C++ function pushZerosToEnd(int arr[], int n) to push all the zero’s of a given array to the end of the array.
+ */
+ 
+#include <iostream>
+
+using namespace std;
+ 
+void pushZerosToEnd(int arr[], int n);
+
+int main()
+{
+   cout << "--Test for pushZerosToEnd--: " << endl;
+   int arr1[20];
+   cout << "Enter how many numbers you want to enter(n): ";
+   cin >> n;
+   cout << "Enter " << n << " numbers including zeros: ";
+    for (int i = 0; i < n; i++)
+    {
+     cin >> arr1[i];
+   }
+   pushZerosToEnd(arr1, n);
+   cout << "After pushing zeros to end: ";
+   for (int i = 0; i < n; i++)
+   {
+     cout << arr1[i] << " ";
+   }
+   cout << endl << endl;
+   
+   return 0;
+}
+
+void pushZerosToEnd(int arr[], int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+     if (arr[i] == 0)
+     {
+       for (int j = i; j < n-1; j++)
+       {
+         arr[j] = arr[j + 1];
+       }
+       arr[n - 1] = 0;
+     }
+   }
+}
